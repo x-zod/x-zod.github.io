@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <base target="_blank">
     <title>Cheng</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;transition:all .3s cubic-bezier(.4,0,.2,1)}
-        body{font-family:'Helvetica Neue',Arial,sans-serif;background-color:#141414;color:#fff;padding:1.2rem;max-width:1000px;margin:0 auto;min-height:100vh;position:relative}
+        body{font-family:'Helvetica Neue',Arial,sans-serif;background:#141414;color:#fff;padding:1.2rem;max-width:1000px;margin:0 auto;min-height:100vh;position:relative}
         .theme-toggle{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:#999;font-size:.9rem;cursor:pointer;padding:.5rem .8rem;border-radius:4px;z-index:100;user-select:none}
-        .theme-toggle:hover{background-color:rgba(255,255,255,.1)}
+        .theme-toggle:hover{background:rgba(255,255,255,.1)}
         .title-placeholder{height:50px;margin-bottom:1.2rem}
-        .menu-container{width:100%}
         .menu{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
-        .menu li a{display:flex;align-items:center;justify-content:center;padding:1.1rem .8rem;background-color:#1f1f1f;color:#fff;font-size:1rem;text-decoration:none;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.3);border:1px solid #333;position:relative;overflow:hidden;text-align:center;min-height:54px}
-        .menu li a:hover,.menu li a:active{background-color:#e50914;color:#fff;transform:translateY(-2px);box-shadow:0 6px 12px rgba(229,9,20,.4);border-color:#ff3b30}
-        .menu li a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .6s ease}
-        .menu li a:hover::before{left:100%}
-        
-        @media (max-width:768px){.menu{gap:1rem}}
-        @media (max-width:480px){body{padding:1rem}.theme-toggle{top:1rem;right:1rem;font-size:.8rem;padding:.4rem .6rem}.title-placeholder{height:40px;margin-bottom:1rem}.menu{grid-template-columns:1fr;gap:.9rem}.menu li a{font-size:1.05rem;padding:1.2rem}}
-        @media (max-width:360px){.title-placeholder{height:36px;margin-bottom:.8rem}.menu li a{font-size:1rem;padding:1rem .8rem;min-height:50px}}
-        
+        .menu a{display:flex;align-items:center;justify-content:center;padding:1.1rem .8rem;background:#1f1f1f;color:#fff;font-size:1rem;text-decoration:none;border-radius:4px;box-shadow:0 2px 6px #0004;border:1px solid #333;position:relative;overflow:hidden;text-align:center;min-height:54px}
+        .menu a:hover,:active{background:#e50914;color:#fff;transform:translateY(-2px);box-shadow:0 6px 12px rgba(229,9,20,.4);border-color:#ff3b30}
+        .menu a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .6s ease}
+        .menu a:hover::before{left:100%}
+        .calculating{animation:pulse 1.5s infinite}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
         .menu li{animation:fadeIn .4s ease forwards;opacity:0}
         .menu li:nth-child(1){animation-delay:.05s}
         .menu li:nth-child(2){animation-delay:.1s}
@@ -30,50 +26,36 @@
         .menu li:nth-child(4){animation-delay:.2s}
         .menu li:nth-child(5){animation-delay:.25s}
         .menu li:nth-child(6){animation-delay:.3s}
-        
-        body.light-mode{background-color:#f5f5f5;color:#1a202c}
+        body.light-mode{background:#f5f5f5;color:#1a202c}
         body.light-mode .theme-toggle{color:#64748b}
-        body.light-mode .theme-toggle:hover{background-color:rgba(0,0,0,.08)}
-        body.light-mode .menu li a{background-color:#fff;color:#1e293b;box-shadow:0 2px 6px rgba(0,0,0,.08);border:1px solid #e2e8f0}
-        body.light-mode .menu li a:hover,body.light-mode .menu li a:active{background-color:#1e40af;color:#fff;box-shadow:0 6px 12px rgba(30,64,175,.25);border-color:#3b82f6}
-        body.light-mode .menu li a::before{background:linear-gradient(90deg,transparent,rgba(0,0,0,.15),transparent)}
-        
-        .calculating{animation:pulse 1.5s infinite}
-        @keyframes pulse{0%{opacity:.7}50%{opacity:1}100%{opacity:.7}}
+        body.light-mode .theme-toggle:hover{background:rgba(0,0,0,.08)}
+        body.light-mode .menu a{background:#fff;color:#1e293b;box-shadow:0 2px 6px rgba(0,0,0,.08);border:1px solid #e2e8f0}
+        body.light-mode .menu a:hover,:active{background:#1e40af;color:#fff;box-shadow:0 6px 12px rgba(30,64,175,.25);border-color:#3b82f6}
+        body.light-mode .menu a::before{background:linear-gradient(90deg,transparent,rgba(0,0,0,.15),transparent)}
+        @media (max-width:768px){.menu{gap:1rem}}
+        @media (max-width:480px){body{padding:1rem}.theme-toggle{top:1rem;right:1rem;font-size:.8rem;padding:.4rem .6rem}.title-placeholder{height:40px;margin-bottom:1rem}.menu{grid-template-columns:1fr;gap:.9rem}.menu a{font-size:1.05rem;padding:1.2rem}}
+        @media (max-width:360px){.title-placeholder{height:36px;margin-bottom:.8rem}.menu a{font-size:1rem;padding:1rem .8rem;min-height:50px}}
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="themeToggle" aria-label="切换主题">切换主题</button>
     <div class="title-placeholder"></div>
-    <div class="menu-container">
-        <ul class="menu">
-            <li><a href="https://github.com/xucheng04028/">Github</a></li>
-            <li><a href="https://t.me/xch04028">Telegram</a></li>
-            <li><a href="https://xucheng04028.github.io/AirCargoCalculator/">货代成本计算器</a></li>
-            <li><a href="https://acl4ssr-sub.github.io/">订阅转换</a></li>
-            <li><a href="https://bpb4-1-3.pages.dev/panel">BPBtunnel</a></li>
-            <li><a href="https://wispy-bird-9dd6.xch04028-de6.workers.dev/admin">Edgetunnel</a></li>
-        </ul>
-    </div>
+    <ul class="menu">
+        <li><a href="https://github.com/xucheng04028/">Github</a></li>
+        <li><a href="https://t.me/xch04028">Telegram</a></li>
+        <li><a href="https://xucheng04028.github.io/AirCargoCalculator/">货代成本计算器</a></li>
+        <li><a href="https://acl4ssr-sub.github.io/">订阅转换</a></li>
+        <li><a href="https://bpb4-1-3.pages.dev/panel">BPBtunnel</a></li>
+        <li><a href="https://wispy-bird-9dd6.xch04028-de6.workers.dev/admin">Edgetunnel</a></li>
+    </ul>
     <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const savedTheme = localStorage.getItem('preferred-theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-
-        // 初始化主题
-        if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-            body.classList.add('light-mode');
-        }
-
-        // 切换主题
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            localStorage.setItem('preferred-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
-            
-            // 按钮动画
-            themeToggle.classList.add('calculating');
-            setTimeout(() => themeToggle.classList.remove('calculating'), 300);
+        const t=document.getElementById('themeToggle'),b=document.body,s=localStorage.getItem('preferred-theme'),d=window.matchMedia('(prefers-color-scheme:dark)').matches;
+        s==='light'||(!s&&!d)&&b.classList.add('light-mode');
+        t.addEventListener('click',()=>{
+            b.classList.toggle('light-mode');
+            localStorage.setItem('preferred-theme',b.classList.contains('light-mode')?'light':'dark');
+            t.classList.add('calculating');
+            setTimeout(()=>t.classList.remove('calculating'),300);
         });
     </script>
 </body>
