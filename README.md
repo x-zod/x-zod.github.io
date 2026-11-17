@@ -1,9 +1,9 @@
 <div align="center">
 
-# 👤 个人主页 & 项目合集
-**简约深色风 | 实用工具合集 | 日常折腾记录**
+# 👤 个人主页 & 折腾合集
+**瞎玩儿**
 
-[![主页访问](https://img.shields.io/badge/🏠-个人主页-2d9c65?style=flat-square)](https://www.zodx.eu.cc/)
+[![主页访问](https://img.shields.io/badge/🏠-个人主页-2d9c65?style=flat-square)](https://www.x-zod.online)
 
 ---
 
@@ -28,7 +28,7 @@
 个人技术随笔、部署踩坑笔记、自用配置整理
 
 ## 🔗 快速直达
-- 个人主页：[https://www.zodx.eu.cc/](https://www.zodx.eu.cc/)
+- 个人主页：[https://www.x-zod.online/](https://www.x-zod.online/)
 
 ## 📫 留言
 自用项目为主，稳定优先，简洁至上
